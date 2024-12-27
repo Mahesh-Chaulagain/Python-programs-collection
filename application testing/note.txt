@@ -1,0 +1,10 @@
+# Application testing
+-> python's user-friendly syntax and readability makes it an excellent choice for QA testers of all skill levels
+-> its straightforward structure and clear code organization facilitates rapid prototyping and implementation of test scripts
+-> libraries like playwright and selenium are great option
+-> for web applications, QA engineers write test script that load the application in a headless browser, normally a QA or test
+    environment and perform a series of validations to determine that the application is correctly working
+-> for example, if you want to test a user's list page, you can load the page, and querying DOM elements, you can validate that
+    effectively the app is rendering results. Even more so you can simulate keyboard strokes, clicks, complete forms and much
+    more with these tools
+    

@@ -1,0 +1,164 @@
+# Try and Except statements in python 
+-> primary method of dealing with exceptions
+-> looks like 
+    x = 0
+    try:
+        print(5/x)
+    except ZeroDivisionError:
+        print("something went wrong")
+
+    # something went wrong
+
+-> whole idea behind handling exceptions: you need to tell the program what to do when it has an error that it cannot simply ignore
+
+# Breaking down the 'try' statement
+-> 'try' and 'except' statements follows a pattern that allows you to reliably handle problems in your code
+-> the first step that happens is, the code in the 'try' clause attempts to execute, after that we have three possibilities:
+    1. No errors in the 'try' clause
+    - if the code in the 'try' clause executes without any errors, the program will:
+        1. execute the 'try' clause
+        2. skip all 'except' clauses
+        3. continue running as normal
+    - example:
+        x = 1
+        try:
+            print(5/x)
+        except ZeroDivisionError:
+            print('something went wrong')
+        print("i am executing after the try clause") 
+
+        # 5.0
+        # i am executing after the try clause
+
+    2. Errors in the 'try' clause and the Exception is specified
+    - if the code in the 'try' clause does throw an exception and the type of exception is specified after any except keyword, the 
+        program will:
+        1. skip the remaining code in the 'try' clause
+        2. execute any code in the matching 'except' clause
+        3. continue running as normal
+    - example
+        x = 0
+        try:
+            print(5 / x)
+        except ZeroDivisionError:
+            print("something went wrong")
+        print("i am executing after the try clause!")
+
+        # something went wrong
+        # i am executing after the try clause!
+
+    3. Errors in the 'try' clause and the exception is not specified
+    - if the program throws an exception in the 'try' clause, but the exception is not specified in any 'except' statement, then the
+        program will:
+        1. stop the execution of the program and throw the error
+
+    - example:
+        x = 0
+        try: 
+            print(5 / y)
+        except: 
+            print("something went wrong")
+        print("i am executing after the try clause")
+
+        # something went wrong
+        # i am executing after the try clause
+
+    * The except block catches any exception that occurs within the try block. In this case, it catches the NameError because it's a 
+    generic except clause.
+    * The generic except block (except:) catches all exceptions, including NameError, so "something went wrong" is printed
+    
+    - example:
+        x = 0
+        try: 
+            print(5 / y)
+        except ZeroDivisionError:   # exception is NameError
+            print("something went wrong")
+        print("i am executing after the try clause")
+
+        # NameError: name 'y' is not defined
+
+# 'Finally' clause:
+-> optional clause
+-> will always execute, whether there is an error or not
+-> suitable for actions such as closing connections, closing files and logging 
+-> order of execution :
+    1. 'try' clause [if no error thrown]
+    2. 'except' clause
+    3. 'finally' clause
+    4. any code afterwards
+-> example:
+        x = 1
+        try: 
+            print(5 / x)
+        except ZeroDivisionError:
+            print("I am the except clause")
+        finally:
+            print("i am the finally clause")
+
+        print("i am executing after the try clause")
+
+        # 5.0
+        # i am the finally clause
+        # i am executing after the try clause
+
+
+# Conditional execution with the 'else' clause
+-> optional clause
+-> if the code in the 'try' clause executes without throwing an error, then the code in the 'else' clause will also execute
+    x = 1
+    try: 
+        print(5 / x)
+    except ZeroDivisionError:
+        print("I am the except clause")
+    else:
+        print('i am the else clause')
+    finally:
+        print("i am the finally clause")
+
+    print("i am executing after the try clause")
+
+    # 5.0
+    # i am the else clause
+    # i am the finally clause
+    # i am executing after the try clause
+
+-> if we experience an exception or error in the 'try' clause, the 'else' clause would be ignored
+    x = 0
+    try: 
+        print(5 / x)
+    except ZeroDivisionError:
+        print("I am the except clause")
+    else:
+        print('i am the else clause')
+    finally:
+        print("i am the finally clause")
+
+    print("i am executing after the try clause")
+
+    # I am the except clause
+    # i am the finally clause
+    # i am executing after the try clause
+
+# Built-in Exception
+-> there is an entire list of Python's exceptions that comes with the standard library
+-> some few important ones are:
+    KeyError: a key cannot be found in a dictionary
+    IndexError: the index is out-of-bounds on an iterable object
+    TypeError: a function or operation was used on the wrong type of object
+    OSError: general operationg system errors
+
+# Custom exceptions
+-> can also defing custom exceptions
+-> example: 
+    class FooError(Exception):  # create a class and extend it from the Exception class
+    def __init__(self, message):
+        self.message = message
+
+    def foo(self):
+        print("bar")
+
+    try: 
+        raise FooError("this is a test error")
+    except FooError as e:
+        e.foo()
+ 

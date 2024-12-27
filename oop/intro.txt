@@ -1,0 +1,16 @@
+# OOP 
+-> create blueprints for managing and creating data called "class"
+-> using blueprints to create objects allows you to reuse your code and build upon it easily
+-> to write great code, OOP follows four pillars
+
+1. Polymorphism: ability of an object to take many forms
+2. Inheritance: child classes acquire properties from parent class 
+3. Encapsulation: protects data and methods from outside misuse by binding them together
+4. Abstraction: Handles complexity by hiding unnecessary details from the unnecessary
+
+Relating this to house-oriented building example:
+Polymorphism: ability of house to have different types of roofs, windows, doors and so on.
+Inheritance: a house gaining a new feature like an garage.
+Encapsulation: keeping kids out of the garage by using a garage key.
+Abstraction: ignoring the construction materials and frame of the house, and instead just considering how the final product looks.
+

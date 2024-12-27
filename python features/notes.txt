@@ -1,0 +1,146 @@
+#1. list comprehensions
+-> provide a concise way to create lists
+-> replaces the need for using loops to generate lists
+-> example:
+    squares = [x**2 for x in range(10)]
+    print(squares)
+-> Output:
+    [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+
+#2. Generator Expressions
+-> similar to list comprehension but with parenthesis
+-> used for creating generators
+-> memory efficient and suitable for large data sets
+-> example:
+    squares_gen = (x**2 for x in range(10))
+    print(squares_gen)
+-> Output:
+    <generator object <genexpr> at 0x0000026E20379A10>
+
+
+#3 Default dictionary
+-> dictionary-like class that provides a default values for missing keys
+-> example:
+    from collections import defaultdict
+    dd = defaultdict(int)
+    dd['key'] += 1
+    print(dd)
+-> Output:
+    defaultdict(<class 'int'>, {'key': 1})
+
+
+#4 Named Tuples
+-> creates tuples subclass with named fields
+-> makes code more readable by accessing fields by name instead by position
+-> example:
+    from collections import namedtuple
+    Point = namedtuple('Point','x y')
+    p = Point(10,20)
+    print(p)
+-> Output:
+    Point(x=10, y=20)
+
+
+#5 Enumerate function
+-> adds a counter to an iterable and returns it as an enumerate object
+-> useful for obtaining both the index and value in a loop
+-> example:
+    for index, value in enumerate(['a','b','c','d']):
+        print(index, value)
+-> Output:
+    0 a
+    1 b
+    2 c
+    3 d
+
+
+#6 Zip function
+-> combines multiple iterables into a single iterable of tuples
+-> useful for iterating over multiple sequences simultaneously
+-> example:
+    names = ['a', 'b', 'c']
+    ages = [20, 25, 30]
+    combined = list(zip(names, ages))
+    print(combined)
+-> Output:
+    [('a', 20), ('b', 25), ('c', 30)]
+
+
+#7 Set comprehensions
+-> similar to list comprehension
+-> creates sets in a concise way
+-> example:
+    unique_squares = {x**2 for x in range(10)}
+    print(unique_squares)
+-> Output:
+    {0, 1, 64, 4, 36, 9, 16, 49, 81, 25}
+
+
+
+#8 Frozenset
+-> is an immutable set
+-> useful when we need a set that cannot be changed after creation
+-> example:
+    fs = frozenset([1,2,3,2,1])
+    print(fs[0])
+-> Output:
+    TypeError: 'frozenset' object is not subscriptable
+
+
+#9 Counter
+-> class from the collections module
+-> counts the occurance of elements in a collection
+-> useful for counting hashable objects
+-> example:
+    from collections import Counter
+    counts = Counter(['a','b','c','a','c','b','c','a'])
+    print(counts)
+-> Output:
+    Counter({'a': 3, 'c': 3, 'b': 2})
+
+
+#10 Context Managers
+-> using the 'with' statement, context managers handle resource management, like file I/O efficiently and cleanly
+-> example:
+    with open('file.txt','r') as file:
+        contents = file.read()
+
+
+#11 dataclass
+-> dataclass decorator simplifies class creation by automatically adding special methods like 'init' and 'repr'
+from dataclasses import dataclass
+@dataclass
+class Point:
+    x: int
+    y: int
+
+
+#12 Decorators
+-> are functions that modify the behavior of other functions
+-> useful for logging, access control, memorization and more
+-> example:
+    def my_decorator(func):
+        def wrapper():
+            print('something is happening before the function is called')
+            func()
+            print('something is happening after the function is called')
+        return wrapper
+
+    @my_decorator
+    def say_hello():
+        print('hello')
+
+    say_hello()
+
+#13 Asyncio
+-> asyncio module provides a framework for asynchronous programming 
+-> useful for I/O bound and high-level structured network code
+-> example:
+    import asyncio
+    async def main():
+        print('hello')
+        await asyncio.sleep(5)
+        print('world!')
+
+    asyncio.run(main())

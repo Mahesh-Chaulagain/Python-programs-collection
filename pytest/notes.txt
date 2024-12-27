@@ -1,0 +1,22 @@
+# Pytest
+-> testing framework for python
+-> auto-discovery of tests
+-> rich assertion introspection
+    - means when a test fails we get a very nice report of what went wrong
+-> support parametarized and fixture-based testing
+    - can easily run test functions with differrent arguments
+
+# Why Pytest
+- simplified syntax
+- rich assertion introspection
+- powerful fixture system
+- compatibility 
+- extensibility
+
+# Mocking
+-> powerful testing technique which is used to isolate the system that we are testing
+
+# Testing using ChatGPT
+-> using pytest and the function that comes from it such as fixtures, parameterize, raises and mark
+where ever necessary.test the following code:
+<code ..>
